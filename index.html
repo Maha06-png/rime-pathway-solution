@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Synaptic Memory — an interactive exploration of brain-inspired AI and Dragon Hatchling.">
+
+    <title>Synaptic Memory | Pathway Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================================
+     BACKGROUND
+========================================= -->
+
+<div class="background-grid"></div>
+<div class="ambient ambient-one"></div>
+<div class="ambient ambient-two"></div>
+
+<!-- =========================================
+     NAVBAR
+========================================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <div class="brand-name">PATHWAY</div>
+            <div class="brand-subtitle">INTERACTIVE EXPLORER</div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#concept">Concept</a>
+        <a href="#experiment">Experiment</a>
+        <a href="#bdh">BDH</a>
+        <a href="#limitations">Limitations</a>
+    </nav>
+
+    <button class="nav-button" id="startBtn">
+        Start Exploring
+        <span>→</span>
+    </button>
+
+</header>
+
+
+<!-- =========================================
+     HERO
+========================================= -->
+
+<main>
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="eyebrow">
+            <span class="pulse-dot"></span>
+            FRONTIER AI · EDUCATIONAL EXPERIENCE
+        </div>
+
+        <h1>
+            When a network
+            <span>remembers.</span>
+        </h1>
+
+        <p class="hero-description">
+            Explore how activity can temporarily change the strength
+            of connections — turning the network itself into a form
+            of short-term memory.
+        </p>
+
+        <div class="hero-actions">
+
+            <button class="primary-button" id="exploreBtn">
+                Explore the memory
+                <span>↓</span>
+            </button>
+
+            <button class="secondary-button" id="learnBtn">
+                Why this matters
+            </button>
+
+        </div>
+
+        <div class="hero-stat-row">
+
+            <div class="hero-stat">
+                <strong>01</strong>
+                <span>Core concept</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>∞</strong>
+                <span>Sequence length</span>
+            </div>
+
+            <div class="hero-stat">
+                <strong>REAL-TIME</strong>
+                <span>Interaction</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HERO VISUAL -->
+
+    <div class="hero-visual">
+
+        <div class="network-orbit orbit-one"></div>
+        <div class="network-orbit orbit-two"></div>
+
+        <div class="network-card">
+
+            <div class="network-header">
+                <div>
+                    <span class="mini-label">LIVE NETWORK</span>
+                    <h3>Synaptic State</h3>
+                </div>
+
+                <div class="live-status">
+                    <span></span>
+                    LIVE
+                </div>
+            </div>
+
+            <canvas id="heroCanvas"></canvas>
+
+            <div class="network-footer">
+
+                <div>
+                    <span>ACTIVE UNITS</span>
+                    <strong id="activeUnits">07</strong>
+                </div>
+
+                <div>
+                    <span>MEMORY</span>
+                    <strong id="heroMemory">68%</strong>
+                </div>
+
+                <div>
+                    <span>STATE</span>
+                    <strong class="state-active">ADAPTING</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CONCEPT
+========================================= -->
+
+<section class="section" id="concept">
+
+    <div class="section-heading">
+
+        <div class="section-number">01</div>
+
+        <div>
+            <span class="section-label">THE CORE IDEA</span>
+
+            <h2>
+                Memory doesn't always need
+                <span>more storage.</span>
+            </h2>
+
+            <p>
+                Instead of keeping every previous token in a growing
+                history, a system can encode recent experience into
+                an evolving internal state.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="concept-grid">
+
+        <article class="concept-card">
+
+            <div class="card-icon">01</div>
+
+            <h3>Activity</h3>
+
+            <p>
+                A neuron becomes active in response to an input.
+            </p>
+
+            <div class="mini-visual activity-visual">
+                <div class="bar active"></div>
+                <div class="bar active"></div>
+                <div class="bar"></div>
+                <div class="bar active"></div>
+                <div class="bar"></div>
+            </div>
+
+        </article>
+
+
+        <div class="concept-arrow">→</div>
+
+
+        <article class="concept-card highlight">
+
+            <div class="card-icon">02</div>
+
+            <h3>Synaptic update</h3>
+
+            <p>
+                Recent activity changes the strength of connections.
+            </p>
+
+            <div class="synapse-demo">
+
+                <div class="node"></div>
+
+                <div class="connection">
+                    <span></span>
+                </div>
+
+                <div class="node"></div>
+
+            </div>
+
+        </article>
+
+
+        <div class="concept-arrow">→</div>
+
+
+        <article class="concept-card">
+
+            <div class="card-icon">03</div>
+
+            <h3>Memory</h3>
+
+            <p>
+                The changed network state carries information forward.
+            </p>
+
+            <div class="memory-ring">
+                <div>
+                    <strong>74</strong>
+                    <small>%</small>
+                </div>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     CENTRAL CLAIM
+========================================= -->
+
+<section class="claim-section">
+
+    <div class="claim-badge">
+        THE ONE-SENTENCE CLAIM
+    </div>
+
+    <blockquote>
+        “Recent activity can temporarily strengthen connections,
+        allowing the network's wiring itself to act as working memory.”
+    </blockquote>
+
+    <div class="claim-explanation">
+
+        <div>
+            <span>INPUT</span>
+            <strong>Recent activity</strong>
+        </div>
+
+        <div class="claim-line"></div>
+
+        <div>
+            <span>CHANGE</span>
+            <strong>Connection strength</strong>
+        </div>
+
+        <div class="claim-line"></div>
+
+        <div>
+            <span>RESULT</span>
+            <strong>Temporary memory</strong>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     EXPERIMENT
+========================================= -->
+
+<section class="experiment-section section" id="experiment">
+
+    <div class="section-heading">
+
+        <div class="section-number">02</div>
+
+        <div>
+            <span class="section-label">INTERACTIVE EXPERIMENT</span>
+
+            <h2>
+                Change the network.
+                <span>Watch memory move.</span>
+            </h2>
+
+            <p>
+                Increase the amount of recent activity and observe how
+                the network state changes.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="experiment-layout">
+
+        <!-- CONTROL PANEL -->
+
+        <aside class="control-panel">
+
+            <div class="panel-top">
+
+                <div>
+                    <span class="mini-label">EXPERIMENT</span>
+                    <h3>Synaptic Plasticity</h3>
+                </div>
+
+                <div class="experiment-id">
+                    EXP.01
+                </div>
+
+            </div>
+
+
+            <div class="control-group">
+
+                <div class="control-title">
+
+                    <label for="activitySlider">
+                        Recent activity
+                    </label>
+
+                    <strong id="activityValue">60%</strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="activitySlider"
+                    min="0"
+                    max="100"
+                    value="60"
+                >
+
+                <div class="range-labels">
+                    <span>QUIET</span>
+                    <span>INTENSE</span>
+                </div>
+
+            </div>
+
+
+            <div class="control-group">
+
+                <div class="control-title">
+
+                    <label for="decaySlider">
+                        Memory decay
+                    </label>
+
+                    <strong id="decayValue">30%</strong>
+
+                </div>
+
+                <input
+                    type="range"
+                    id="decaySlider"
+                    min="0"
+                    max="100"
+                    value="30"
+                >
+
+                <div class="range-labels">
+                    <span>SLOW</span>
+                    <span>FAST</span>
+                </div>
+
+            </div>
+
+
+            <button class="run-button" id="runExperiment">
+
+                <span class="play-icon">▶</span>
+
+                Run experiment
+
+            </button>
+
+
+            <button class="reset-button" id="resetExperiment">
+                Reset network
+            </button>
+
+        </aside>
+
+
+        <!-- SIMULATION -->
+
+        <div class="simulation-panel">
+
+            <div class="simulation-header">
+
+                <div>
+                    <span class="mini-label">NETWORK STATE</span>
+                    <h3>Watch the connections change</h3>
+                </div>
+
+                <div class="simulation-time">
+                    t = <span id="timeValue">0</span>
+                </div>
+
+            </div>
+
+
+            <div class="simulation-canvas-wrapper">
+
+                <canvas id="simulationCanvas"></canvas>
+
+                <div class="canvas-overlay">
+
+                    <div class="overlay-item">
+                        <span class="legend-dot weak"></span>
+                        Weak
+                    </div>
+
+                    <div class="overlay-item">
+                        <span class="legend-dot medium"></span>
+                        Active
+                    </div>
+
+                    <div class="overlay-item">
+                        <span class="legend-dot strong"></span>
+                        Strengthened
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- METRICS -->
+
+            <div class="metrics">
+
+                <div class="metric">
+
+                    <div class="metric-top">
+                        <span>MEMORY STRENGTH</span>
+                        <strong id="memoryValue">64%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            id="memoryProgress"
+                            style="width:64%"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <div class="metric-top">
+                        <span>CONNECTION CHANGE</span>
+                        <strong id="connectionValue">41%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            id="connectionProgress"
+                            style="width:41%"
+                        ></div>
+                    </div>
+
+                </div>
+
+
+                <div class="metric">
+
+                    <div class="metric-top">
+                        <span>STATE STABILITY</span>
+                        <strong id="stabilityValue">78%</strong>
+                    </div>
+
+                    <div class="progress">
+                        <div
+                            class="progress-fill"
+                            id="stabilityProgress"
+                            style="width:78%"
+                        ></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     RESULT
+========================================= -->
+
+<section class="result-section">
+
+    <div class="result-card">
+
+        <div class="result-left">
+
+            <span class="section-label">
+                WHAT JUST HAPPENED?
+            </span>
+
+            <h2 id="resultTitle">
+                The network remembered.
+            </h2>
+
+            <p id="resultText">
+                Increased activity strengthened several connections.
+                The network's current state now contains information
+                about what happened recently.
+            </p>
+
+        </div>
+
+
+        <div class="result-right">
+
+            <div class="result-circle">
+
+                <div>
+                    <strong id="resultPercent">64</strong>
+                    <span>%</span>
+                </div>
+
+                <small>memory retained</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     GROUND TRUTH
+========================================= -->
+
+<section class="comparison-section section">
+
+    <div class="section-heading">
+
+        <div class="section-number">03</div>
+
+        <div>
+            <span class="section-label">TRUTH BESIDE ESTIMATE</span>
+
+            <h2>
+                What should the network
+                <span>remember?</span>
+            </h2>
+
+            <p>
+                Compare the expected memory signal with the simulated
+                network state.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="comparison-grid">
+
+        <div class="comparison-card">
+
+            <div class="comparison-header">
+                <span>EXPECTED</span>
+                <span class="tag">REFERENCE</span>
+            </div>
+
+            <div class="comparison-value">
+                <strong id="expectedValue">72%</strong>
+            </div>
+
+            <p>
+                Based on the selected activity level and decay rate.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-symbol">
+            −
+        </div>
+
+
+        <div class="comparison-card">
+
+            <div class="comparison-header">
+                <span>SIMULATED</span>
+                <span class="tag live">LIVE</span>
+            </div>
+
+            <div class="comparison-value">
+                <strong id="simulatedValue">64%</strong>
+            </div>
+
+            <p>
+                Memory represented by the current network state.
+            </p>
+
+        </div>
+
+
+        <div class="comparison-symbol">
+            =
+        </div>
+
+
+        <div class="comparison-card gap-card">
+
+            <div class="comparison-header">
+                <span>GAP</span>
+            </div>
+
+            <div class="comparison-value">
+                <strong id="gapValue">8%</strong>
+            </div>
+
+            <p id="gapText">
+                A small gap means the network state closely follows
+                the expected signal.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     BDH
+========================================= -->
+
+<section class="bdh-section" id="bdh">
+
+    <div class="bdh-background-text">
+        BDH
+    </div>
+
+    <div class="bdh-content">
+
+        <div class="bdh-label">
+            CONNECTION TO FRONTIER AI
+        </div>
+
+        <h2>
+            From biological intuition
+            <br>
+            to <span>Dragon Hatchling.</span>
+        </h2>
+
+        <p class="bdh-intro">
+            The Dragon Hatchling family explores a brain-inspired
+            approach in which memory and computation share a common
+            computational fabric. In BDH, attention can be understood
+            through synaptic memory and Hebbian-style updates.
+        </p>
+
+
+        <div class="bdh-diagram">
+
+            <div class="bdh-step">
+
+                <span class="bdh-number">01</span>
+
+                <div class="bdh-node">
+                    <div class="node-core"></div>
+                </div>
+
+                <h3>Input</h3>
+
+                <p>
+                    Information enters the system.
+                </p>
+
+            </div>
+
+
+            <div class="bdh-connector">
+                <span></span>
+            </div>
+
+
+            <div class="bdh-step active">
+
+                <span class="bdh-number">02</span>
+
+                <div class="bdh-node">
+                    <div class="node-core"></div>
+                </div>
+
+                <h3>Synaptic memory</h3>
+
+                <p>
+                    Recent activity modifies connections.
+                </p>
+
+            </div>
+
+
+            <div class="bdh-connector">
+                <span></span>
+            </div>
+
+
+            <div class="bdh-step">
+
+                <span class="bdh-number">03</span>
+
+                <div class="bdh-node">
+                    <div class="node-core"></div>
+                </div>
+
+                <h3>Reasoning</h3>
+
+                <p>
+                    The updated state influences future computation.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="bdh-note">
+
+            <div class="note-icon">i</div>
+
+            <div>
+                <strong>Important distinction</strong>
+
+                <p>
+                    This interactive network is a simplified educational
+                    model. It is <em>not</em> an implementation of the
+                    official BDH model. The BDH connection is based on
+                    published concepts and equations.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     LIMITATIONS
+========================================= -->
+
+<section class="limitations-section section" id="limitations">
+
+    <div class="section-heading">
+
+        <div class="section-number">04</div>
+
+        <div>
+            <span class="section-label">SCIENTIFIC HONESTY</span>
+
+            <h2>
+                Memory has a
+                <span>failure mode.</span>
+            </h2>
+
+            <p>
+                A useful model should show not only when an idea works,
+                but also where it breaks.
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="limitations-grid">
+
+        <article class="limitation-card">
+
+            <span class="limitation-number">01</span>
+
+            <h3>Interference</h3>
+
+            <p>
+                New activity can modify connections that previously
+                carried useful information.
+            </p>
+
+        </article>
+
+
+        <article class="limitation-card">
+
+            <span class="limitation-number">02</span>
+
+            <h3>Decay</h3>
+
+            <p>
+                If the system does not maintain a state strongly enough,
+                recent information can gradually disappear.
+            </p>
+
+        </article>
+
+
+        <article class="limitation-card">
+
+            <span class="limitation-number">03</span>
+
+            <h3>Capacity</h3>
+
+            <p>
+                Compressing information into a state introduces
+                trade-offs between persistence and flexibility.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FINAL CHALLENGE
+========================================= -->
+
+<section class="challenge-section">
+
+    <div class="challenge-inner">
+
+        <span class="section-label">
+            YOUR TURN
+        </span>
+
+        <h2>
+            Can you make the network
+            <span>forget?</span>
+        </h2>
+
+        <p>
+            Try increasing activity while also increasing decay.
+            Find the point where recent information stops surviving.
+        </p>
+
+        <button class="primary-button" id="challengeBtn">
+            Run the challenge
+            <span>→</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    <div class="footer-brand">
+
+        <div class="brand-mark">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div>
+            <strong>PATHWAY EXPLORER</strong>
+            <small>
+                Interactive educational experience
+            </small>
+        </div>
+
+    </div>
+
+
+    <div class="footer-links">
+
+        <span>Frontier AI</span>
+        <span>·</span>
+        <span>Synaptic Memory</span>
+        <span>·</span>
+        <span>BDH</span>
+
+    </div>
+
+
+    <div class="footer-right">
+        DATAFORGE 2026
+    </div>
+
+</footer>
+
+</main>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+</body>
+</html>
